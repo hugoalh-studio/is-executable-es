@@ -20,10 +20,11 @@ export interface IsExecutableOptions {
 	uid?: number;
 }
 /**
+ * Determine whether the file is executable on the POSIX operate system.
  * @access private
- * @param {NodeFsStats} stat
- * @param {IsExecutableOptions} [options={}]
- * @returns {boolean}
+ * @param {NodeFsStats} stat Stat of the file.
+ * @param {IsExecutableOptions} [options={}] Options.
+ * @returns {boolean} Determine result.
  */
 function isExecutablePosix(stat: NodeFsStats, options: IsExecutableOptions = {}): boolean {
 	if (!stat.isFile()) {
@@ -60,10 +61,11 @@ function isExecutablePosix(stat: NodeFsStats, options: IsExecutableOptions = {})
 	);
 }
 /**
+ * Determine whether the file is executable on the Windows operate system.
  * @access private
- * @param {NodeFsStats} stat
- * @param {string} filePath
- * @returns {boolean}
+ * @param {NodeFsStats} stat Stat of the file.
+ * @param {string} filePath Path of the file.
+ * @returns {boolean} Determine result.
  */
 function isExecutableWindows(stat: NodeFsStats, filePath: string): boolean {
 	if (!stat.isFile()) {
